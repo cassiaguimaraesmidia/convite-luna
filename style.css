@@ -305,3 +305,47 @@ body{display:flex;justify-content:center;overflow:hidden}
   transition:opacity .45s ease, visibility .45s ease;
 }
 
+/* Borboletas emoji no envelope fechado */
+.fechado-eb1{left:8%;top:24%;animation:vooFechado1 8s ease-in-out infinite}
+.fechado-eb2{left:76%;top:30%;animation:vooFechado2 10s ease-in-out infinite 1.2s;font-size:clamp(22px,5vw,36px)}
+.fechado-eb3{left:20%;top:68%;animation:vooFechado3 9s ease-in-out infinite 2.1s;font-size:clamp(20px,4.5vw,34px)}
+.fechado-eb4{left:82%;top:70%;animation:vooFechado4 11s ease-in-out infinite 3s;font-size:clamp(22px,5vw,36px)}
+.fechado-eb5{left:48%;top:18%;animation:vooFechado5 12s ease-in-out infinite 4s;font-size:clamp(18px,4vw,31px)}
+.fechado-eb6{left:54%;top:76%;animation:vooFechado6 9.5s ease-in-out infinite 5s;font-size:clamp(18px,4vw,31px)}
+
+@keyframes vooFechado1{
+  0%,100%{opacity:.15;transform:translate(0,0) rotate(-8deg) scale(.82)}
+  25%{opacity:.9;transform:translate(35px,-28px) rotate(10deg) scale(1)}
+  50%{opacity:.75;transform:translate(75px,8px) rotate(-4deg) scale(.92)}
+  75%{opacity:.9;transform:translate(35px,45px) rotate(12deg) scale(1.02)}
+}
+@keyframes vooFechado2{
+  0%,100%{opacity:.15;transform:translate(0,0) rotate(10deg) scale(.8)}
+  30%{opacity:.85;transform:translate(-45px,25px) rotate(-12deg) scale(1)}
+  60%{opacity:.75;transform:translate(-80px,-25px) rotate(8deg) scale(.9)}
+  82%{opacity:.9;transform:translate(-35px,-55px) rotate(-5deg) scale(1.03)}
+}
+@keyframes vooFechado3{
+  0%,100%{opacity:.12;transform:translate(0,0) rotate(-5deg) scale(.78)}
+  28%{opacity:.85;transform:translate(50px,-35px) rotate(14deg) scale(1)}
+  55%{opacity:.7;transform:translate(85px,-5px) rotate(-10deg) scale(.92)}
+  78%{opacity:.9;transform:translate(40px,35px) rotate(8deg) scale(1.02)}
+}
+@keyframes vooFechado4{
+  0%,100%{opacity:.12;transform:translate(0,0) rotate(7deg) scale(.8)}
+  25%{opacity:.9;transform:translate(-40px,-30px) rotate(-10deg) scale(1)}
+  55%{opacity:.75;transform:translate(-75px,5px) rotate(12deg) scale(.9)}
+  80%{opacity:.9;transform:translate(-25px,45px) rotate(-8deg) scale(1.03)}
+}
+@keyframes vooFechado5{
+  0%,100%{opacity:.1;transform:translate(0,0) rotate(-5deg) scale(.75)}
+  30%{opacity:.8;transform:translate(25px,35px) rotate(10deg) scale(1)}
+  60%{opacity:.75;transform:translate(-25px,70px) rotate(-8deg) scale(.9)}
+  85%{opacity:.85;transform:translate(-45px,25px) rotate(7deg) scale(1.02)}
+}
+@keyframes vooFechado6{
+  0%,100%{opacity:.1;transform:translate(0,0) rotate(8deg) scale(.75)}
+  28%{opacity:.85;transform:translate(-30px,-35px) rotate(-10deg) scale(1)}
+  58%{opacity:.7;transform:translate(25px,-70px) rotate(8deg) scale(.92)}
+  82%{opacity:.9;transform:translate(50px,-25px) rotate(-6deg) scale(1.03)}
+}
