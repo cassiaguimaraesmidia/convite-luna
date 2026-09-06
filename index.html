@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#fff7fb">
+  <title>Convite da Luna</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="convite">
+
+    <!-- 1. ENVELOPE -->
+    <section id="tela-envelope" class="tela tela-envelope ativa">
+      <button id="abrir-envelope" class="botao-envelope" aria-label="Abrir convite">
+        <img src="imagens/envelope-fechado.png" alt="Clique no envelope para abrir">
+      </button>
+      <div class="brilho brilho-1"></div>
+      <div class="brilho brilho-2"></div>
+      <div class="brilho brilho-3"></div>
+    </section>
+
+    <!-- 2. ABERTURA -->
+    <section id="tela-abertura" class="tela tela-abertura" aria-hidden="true">
+      <div class="cena-envelope">
+        <div class="carta-efeito"></div>
+        <img src="imagens/envelope-aberto.png" alt="Envelope aberto">
+      </div>
+
+      <div class="particulas" aria-hidden="true"></div>
+      <div class="flash-magico" aria-hidden="true"></div>
+
+      <!-- Borboletas emoji da abertura -->
+      <div class="emoji-borboleta abertura-eb1" aria-hidden="true">🦋</div>
+      <div class="emoji-borboleta abertura-eb2" aria-hidden="true">🦋</div>
+      <div class="emoji-borboleta abertura-eb3" aria-hidden="true">🦋</div>
+    </section>
+
+    <!-- 3. CONVITE DA LUNA -->
+    <section id="tela-convite" class="tela tela-final" aria-hidden="true">
+      <img src="imagens/convite-luna.png" alt="Convite de 1 ano da Luna">
+
+      <!-- Borboletas emoji ficam voando enquanto o convite está aberto -->
+      <div class="emoji-borboleta final-eb1" aria-hidden="true">🦋</div>
+      <div class="emoji-borboleta final-eb2" aria-hidden="true">🦋</div>
+      <div class="emoji-borboleta final-eb3" aria-hidden="true">🦋</div>
+
+      <div class="acoes" aria-label="Ações do convite">
+        <button class="acao" id="btn-local" type="button">
+          <span class="icone">⌖</span>
+          <span>Local</span>
+        </button>
+
+        <button class="acao" id="btn-confirmar" type="button">
+          <span class="icone">✓</span>
+          <span>Confirmar</span>
+        </button>
+      </div>
+
+      <div id="contador" class="contador" aria-label="Contagem regressiva">
+        <span class="contador-titulo">Contando os dias para esse momento...</span>
+        <span id="contador-tempo">-- dias • --h • --min • --s</span>
+      </div>
+    </section>
+
+    <!-- Controle de música -->
+    <button id="controle-musica" class="controle-musica" type="button" aria-label="Pausar música">♫</button>
+
+    <!-- Confirmação -->
+    <div id="modal-confirmacao" class="modal-overlay" aria-hidden="true">
+      <div class="modal">
+        <button id="fechar-modal" class="fechar-modal" type="button" aria-label="Fechar">×</button>
+        <div class="modal-flor">✿</div>
+        <h2>Confirmação de presença</h2>
+        <p>Você estará com a gente para comemorar o primeiro aninho da Luna?</p>
+        <div class="opcoes">
+          <button id="vai-sim" type="button">Sim, estarei presente</button>
+          <button id="vai-nao" type="button">Não poderei comparecer</button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="musica" preload="auto" loop>
+      <source src="imagens/musica.mp3" type="audio/mpeg">
+    </audio>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
