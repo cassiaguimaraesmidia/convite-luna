@@ -22,7 +22,7 @@ setTimeout(() => {
     telaMarca.classList.add("saindo");
     setTimeout(() => telaMarca.remove(), 500);
   }
-}, 2300);
+}, 2600);
 
 
 botaoEnvelope.addEventListener("click", () => {
@@ -120,7 +120,7 @@ modal.addEventListener("click", (event) => {
 
 // WhatsApp de teste.
 function abrirWhatsApp(mensagem) {
-  const telefone = "5511942266695";
+  const telefone = "5511998268899";
   const url = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(mensagem);
   window.open(url, "_blank", "noopener");
 }
