@@ -1,3 +1,4 @@
+const telaMarca = document.getElementById("tela-marca");
 const telaEnvelope = document.getElementById("tela-envelope");
 const telaAbertura = document.getElementById("tela-abertura");
 const telaConvite = document.getElementById("tela-convite");
@@ -14,6 +15,15 @@ const vaiSim = document.getElementById("vai-sim");
 const vaiNao = document.getElementById("vai-nao");
 
 let abrindo = false;
+
+// Mostra a assinatura da marca rapidamente antes do envelope.
+setTimeout(() => {
+  if (telaMarca) {
+    telaMarca.classList.add("saindo");
+    setTimeout(() => telaMarca.remove(), 500);
+  }
+}, 2300);
+
 
 botaoEnvelope.addEventListener("click", () => {
   if (abrindo) return;
