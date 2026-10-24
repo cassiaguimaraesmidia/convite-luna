@@ -1,6 +1,11 @@
 const telaInicial = document.getElementById("tela-inicial");
 const telaVideo = document.getElementById("tela-video");
 const telaConvite = document.getElementById("tela-convite");
+const telaPresentes = document.getElementById("tela-presentes");
+const videoPresentes = document.getElementById("video-presentes");
+const btnPresentes = document.getElementById("btn-presentes");
+const btnPix = document.getElementById("btn-pix");
+const voltarConvite = document.getElementById("voltar-convite");
 const botaoInicial = document.getElementById("abrir-convite");
 const videoAbertura = document.getElementById("video-abertura");
 const musica = document.getElementById("musica");
@@ -123,7 +128,65 @@ setInterval(atualizarContador, 1000);
 
 // Google Maps
 btnLocal.addEventListener("click", () => {
-  window.open("https://maps.app.goo.gl/MqdbxyPYWeMEmwoy9", "_blank", "noopener");
+  window.open("https://maps.app.goo.gl/xVVhdDpio2HAk6EL7", "_blank", "noopener");
+});
+
+// Sugestão de presente: abre o vídeo enviado como uma tela própria.
+let musicaTocavaAntesDosPresentes = false;
+
+btnPresentes.addEventListener("click", () => {
+  musicaTocavaAntesDosPresentes = musica && !musica.paused;
+  if (musica) musica.pause();
+
+  telaConvite.classList.remove("ativa");
+  telaConvite.setAttribute("aria-hidden", "true");
+  telaPresentes.classList.add("ativa");
+  telaPresentes.setAttribute("aria-hidden", "false");
+
+  videoPresentes.currentTime = 0;
+  videoPresentes.muted = false;
+  videoPresentes.play().catch(() => {
+    // Se o navegador não permitir áudio no vídeo, mantenha a tela acessível.
+    videoPresentes.muted = true;
+    videoPresentes.play().catch(() => {});
+  });
+
+  controleMusica.classList.remove("visivel");
+});
+
+function retornarAoConvite() {
+  videoPresentes.pause();
+  videoPresentes.currentTime = 0;
+  telaPresentes.classList.remove("ativa");
+  telaPresentes.setAttribute("aria-hidden", "true");
+  telaConvite.classList.add("ativa");
+  telaConvite.setAttribute("aria-hidden", "false");
+
+  if (musicaTocavaAntesDosPresentes) {
+    musica.volume = 0;
+    musica.play().then(() => {
+      let volume = 0;
+      const fade = setInterval(() => {
+        volume += 0.025;
+        musica.volume = Math.min(volume, 0.35);
+        if (volume >= 0.35) clearInterval(fade);
+      }, 100);
+    }).catch(() => {});
+  }
+
+  setTimeout(() => controleMusica.classList.add("visivel"), 450);
+}
+
+voltarConvite.addEventListener("click", retornarAoConvite);
+videoPresentes.addEventListener("ended", () => {
+  // Congela no último quadro até a pessoa voltar ou solicitar o Pix.
+  videoPresentes.pause();
+  try { videoPresentes.currentTime = Math.max(0, videoPresentes.duration - 0.05); } catch (_) {}
+});
+
+// O botão sobre o selo “Aceitamos Pix” abre uma conversa com texto pronto.
+btnPix.addEventListener("click", () => {
+  abrirWhatsApp("Olá! Vim pelo convite de 1 aninho da Luna e gostaria de presenteá-la por Pix. Você poderia me enviar a chave Pix, por favor?");
 });
 
 // Confirmação

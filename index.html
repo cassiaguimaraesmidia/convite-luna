@@ -53,11 +53,32 @@
           <span class="icone">✓</span>
           <span>Confirmar</span>
         </button>
+
+        <button class="acao" id="btn-presentes" type="button">
+          <span class="icone">✧</span>
+          <span>Sugestão de presente</span>
+        </button>
       </div>
 
       <div id="contador" class="contador" aria-label="Contagem regressiva">
         <span id="contador-tempo">-- dias • --h • --min • --s</span>
       </div>
+    </section>
+
+    <!-- 4. SUGESTÃO DE PRESENTE -->
+    <section id="tela-presentes" class="tela tela-presentes" aria-hidden="true">
+      <div class="presentes-video-wrapper">
+        <video id="video-presentes" class="video-presentes"
+               src="imagens/sugestao-presentes.mp4"
+               preload="metadata" playsinline></video>
+
+        <!-- Área clicável sobre o selo “Aceitamos Pix” que aparece no vídeo -->
+        <button id="btn-pix" class="btn-pix" type="button"
+                aria-label="Pedir a chave Pix pelo WhatsApp"
+                title="Pedir chave Pix pelo WhatsApp"></button>
+        <p class="dica-pix">Toque em “Aceitamos Pix” para pedir a chave pelo WhatsApp</p>
+      </div>
+      <button id="voltar-convite" class="voltar-convite" type="button">‹ Voltar ao convite</button>
     </section>
 
     <button id="controle-musica" class="controle-musica" type="button"
